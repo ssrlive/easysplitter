@@ -141,27 +141,27 @@ LRESULT WINAPI es_SetBorder(PESDATA esd, WPARAM wp, LPARAM lp)
     {
     case ESB_TOP:
         if (!esd->Vertical) {
-            esd->TLBorder = wp;
+            esd->TLBorder = (INT)wp;
         }
         return 0;
     case ESB_BOTTOM:
         if (!esd->Vertical) {
-            esd->BRBorder = wp;
+            esd->BRBorder = (INT)wp;
         }
         return 0;
     case ESB_LEFT:
         if (esd->Vertical) {
-            esd->TLBorder = wp;
+            esd->TLBorder = (INT)wp;
         }
         return 0;
     case ESB_RIGHT:
         if (esd->Vertical) {
-            esd->BRBorder = wp;
+            esd->BRBorder = (INT)wp;
         }
         return 0;
     case ESB_ALL:
-        esd->BRBorder = wp;
-        esd->TLBorder = wp;
+        esd->BRBorder = (INT)wp;
+        esd->TLBorder = (INT)wp;
         return 0;
     default:
         return 0;
@@ -178,7 +178,7 @@ LRESULT WINAPI es_SetTracking(PESDATA esd, LPARAM lp) {
 LRESULT WINAPI es_SetDocking(PESDATA esd, WPARAM wp, LPARAM lp) {
     esd->Dock = (lp != 0);
     if (esd->Dock) {
-        esd->MagBorder = wp;
+        esd->MagBorder = (INT)wp;
     } else {
         esd->MagBorder = 0;
     }
@@ -431,7 +431,7 @@ LRESULT CALLBACK EasySplitLoop(HWND win, UINT msg, WPARAM wp, LPARAM lp) {
     case ESM_GETPOS:
         return es_ReportPosition(esd);
     case ESM_SETPOS:
-        return es_MoveSplitter(esd, lp);
+        return es_MoveSplitter(esd, (INT)lp);
     case ESM_UNDO:
         return es_HandleUndo(esd);
     case ESM_STOP:
@@ -485,15 +485,15 @@ LRESULT CALLBACK EasySplitLoop(HWND win, UINT msg, WPARAM wp, LPARAM lp) {
 
 // register the easy splitter class
 ATOM RegisterEasySplit(HINSTANCE inst) {
-    WNDCLASSW wc;
+    WNDCLASS wc;
     memset(&wc, 0, sizeof(wc));
-    wc.lpszClassName = L"EASYSPLIT";
+    wc.lpszClassName = EASYSPLIT;
     wc.hInstance = inst;
     wc.hbrBackground = NULL;     // not used
     wc.style = CS_OWNDC;
     wc.lpfnWndProc = &EasySplitLoop;
     wc.cbWndExtra = sizeof(PESDATA);
-    return RegisterClassW(&wc);
+    return RegisterClass(&wc);
 }
 
 // Return coordinates of a child window inside it's

@@ -75,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="demo\esdemo.c" />
-    <ClCompile Include="es_main.c" />
+    <ClCompile Include="easysplit.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="easysplit.h" />

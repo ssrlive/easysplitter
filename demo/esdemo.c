@@ -142,12 +142,12 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE pinst, LPWSTR cmdline, INT show)
     GetClientRect(MainWind, &wr);
 
     // create the splitter windows
-    VSplitter = CreateWindowW(L"EASYSPLIT", NULL,
+    VSplitter = CreateWindowW(EASYSPLIT, NULL,
         WS_CHILD | WS_VISIBLE | WS_TABSTOP |
         ES_VERT | ES_LINE | ES_TRACK | ES_DOCK,
         100, 0, 12, wr.bottom, MainWind, 0, inst, NULL);
 
-    HSplitter = CreateWindowW(L"EASYSPLIT", NULL,
+    HSplitter = CreateWindowW(EASYSPLIT, NULL,
         WS_CHILD | WS_VISIBLE | WS_TABSTOP |
         ES_HORZ | ES_LINE | ES_TRACK | ES_DOCK,
         100, 100, wr.right - 110, 12, MainWind, 0, inst, NULL);

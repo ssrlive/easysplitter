@@ -18,14 +18,9 @@
     <ClCompile Include="demo\esdemo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="es_lib\es_main.c">
+    <ClCompile Include="easysplit.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="easysplit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="demo\esdres.rc">
@@ -36,5 +31,10 @@
     <None Include="Demo\ESICON.ico">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="easysplit.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

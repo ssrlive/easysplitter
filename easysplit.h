@@ -76,6 +76,8 @@ WARNING:  Easy Splitter emits WM_SIZE messages whenever it's position
 #define ES_LINE       0x00000004  // draw a line in the splitter
 #define ES_DOCK       0x00000008  // borders are magnetic
 
+#define EASYSPLIT TEXT("EASYSPLIT")
+
 // Functions
 
 // initializes the EASYSPLIT control class
